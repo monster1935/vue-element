@@ -35,11 +35,13 @@
         </el-table-column>
         <el-table-column
           prop="testUser"
-          label="测试用户，流量">
+          label="测试用户，流量"
+          width=140>
         </el-table-column>
         <el-table-column
           prop="projectID"
-          label="方案ID，名称，流量">
+          label="方案ID，名称，流量"
+          width=180>
         </el-table-column>
         <el-table-column
           prop="create"
@@ -47,7 +49,8 @@
         </el-table-column>
         <el-table-column
           prop="lastUpdate"
-          label="最后更新">
+          label="最后更新"
+          width=150>
         </el-table-column>
         <el-table-column
           prop="status"
@@ -57,7 +60,8 @@
         <el-table-column
           :context="_self"
           inline-template
-          label="操作">
+          label="操作"
+          width=120>
           <span>
             <el-button @click="handleClick" type="text" size="small">查看</el-button>
             <el-button type="text" size="small">编辑</el-button>

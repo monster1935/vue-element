@@ -6,7 +6,7 @@ import Help from './components/help/Help.vue';
 import Feedback from './components/feedback/Feedback.vue';
 import App from './App.vue'
 export default [{
-        path: '/',
+        path: '/index',
         component: App,
         children: [{
                 name: '测试管理',
@@ -30,9 +30,8 @@ export default [{
             },
         ]
     },
-
     {
         path: '*',
-        redirect: '/testManagement'
+        redirect: '/index/testManagement'
     }
 ]
