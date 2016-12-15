@@ -4,9 +4,10 @@ import TestManagement from './components/testManagement/TestManagement.vue';
 import UserGroup from './components/userGroup/UserGroup.vue';
 import Help from './components/help/Help.vue';
 import Feedback from './components/feedback/Feedback.vue';
+import UserList from './components/user/UserList.vue';
 import App from './App.vue'
 export default [{
-        path: '/',
+        path: '/index',
         component: App,
         children: [{
                 name: '测试管理',
@@ -17,6 +18,11 @@ export default [{
               name: '用户分群管理',
               path: 'userGroup',
               component:UserGroup
+            },
+            {
+              name: '用户管理',
+              path: 'userList',
+              component: UserList
             },
             {
               name: '帮助中心',
@@ -33,6 +39,6 @@ export default [{
 
     {
         path: '*',
-        redirect: '/testManagement'
+        redirect: '/index/testManagement'
     }
 ]

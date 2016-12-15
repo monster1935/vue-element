@@ -72,8 +72,7 @@ export default {
     flex-flow: row;
   }
   .app_nav{
-    display: relative;
-    top: 64px;
+    position: relative;
     flex: 0 0 280px;
     background: #EFF2F7;
   }

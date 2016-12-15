@@ -4,17 +4,17 @@
 
         <li class="title">
             <i class="el-icon-menu"></i>
-            <span>后台管理系统</span>
+            <span>后台管理系统模板</span>
         </li>
-        <li class="option">
+        <!-- <li class="option">
             <el-select v-model="value" placeholder="请选择">
                 <el-option v-for="item in options" :label="item.label" :value="item.value">
                 </el-option>
             </el-select>
-        </li>
+        </li> -->
         <li class="user">
             <el-dropdown trigger="click">
-                            <span class="el-dropdown-link">
+                <span class="el-dropdown-link">
                 monster1935<i class="el-icon-caret-bottom el-icon--right"></i>
               </span>
                 <el-dropdown-menu slot="dropdown">
@@ -43,6 +43,15 @@ export default {
             }, {
                 label: "test4",
                 value: 4
+            }, {
+                label: "test5",
+                value: 5
+            }, {
+                label: "test6",
+                value: 6
+            }, {
+                label: "test7",
+                value: 7
             }, ],
             value: 1
 
@@ -72,14 +81,17 @@ export default {
     font-size: 1.4em;
     margin-left: 5px;
 }
-
+.el-select-dropdown__list{
+  max-height: 187px !important;
+}
 .option {
     padding-top: 10px;
 }
-.user .el-dropdown{
-  position: absolute;
-  right: 20px;
-  padding-top: 20px;
-  color: #fff !important;
+
+.user .el-dropdown {
+    position: absolute;
+    right: 20px;
+    padding-top: 20px;
+    color: #fff !important;
 }
 </style>

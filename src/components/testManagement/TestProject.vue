@@ -12,7 +12,7 @@
           </div>
         </el-col>
         <el-col :span="20">
-          <el-button type="primary">新建方案测试</el-button>
+          <el-button type="primary" @click.native="onNewClick">新建方案测试</el-button>
         </el-col>
       </el-row>
     </div>
@@ -59,12 +59,29 @@
           inline-template
           label="操作">
           <span>
-            <el-button @click="handleClick" type="text" size="small">查看</el-button>
-            <el-button type="text" size="small">编辑</el-button>
+            <el-button @click="onEditClick($index)" type="text" size="small">编辑</el-button>
+            <el-button @click="onDelClick($index)" type="text" size="small">删除</el-button>
           </span>
         </el-table-column>
       </el-table>
     </div>
+    <el-dialog :title="dialogTitle" v-model="isDialogShow" size="small">
+      <el-form :model="form">
+       <el-form-item label="活动名称" :label-width="formLabelWidth">
+         <el-input v-model="form.name" auto-complete="off"></el-input>
+       </el-form-item>
+       <el-form-item label="活动区域" :label-width="formLabelWidth">
+         <el-select v-model="form.region" placeholder="请选择活动区域">
+           <el-option label="区域一" value="shanghai"></el-option>
+           <el-option label="区域二" value="beijing"></el-option>
+         </el-select>
+       </el-form-item>
+     </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="isDialogShow = false">取 消</el-button>
+        <el-button type="primary" @click="isDialogShow = false">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -74,13 +91,54 @@
     data(){
       return {
         input: '',
-        tableData
+        dialogTitle: '',
+        isDialogShow: false,
+        tableData: tableData,
+        form: {
+         name: '',
+         region: '',
+         date1: '',
+         date2: '',
+         delivery: false,
+         type: [],
+         resource: '',
+         desc: ''
+       },
+       formLabelWidth: '120px'
+
       }
 
     },
     methods: {
-      handleClick: function(){
-        alert('click');
+      // 表格内编辑按钮点击实现
+      onEditClick: function(index){
+        this.dialogTitle = "编辑方案";
+        this.isDialogShow = true;
+      },
+
+      // 表格内删除按钮点击实现
+      onDelClick: function(index){
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          // 此处应为异步请求服务器进行数据库的操作
+          this.tableData.splice(index,1);
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+      onNewClick: function(){
+        this.dialogTitle = "新建方案";
+        this.isDialogShow = true;
       }
     }
   }
