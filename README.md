@@ -10,6 +10,5 @@ npm install
 npm run dev
 npm run build
 ```
-## 待完善的功能
-- Form表单的添加
-- 弹框以及交互细节
+## Introduction
+该项目为本人学习Vue的练手项目，使用ElementUI实现。目前仅仅给出了一个后台管理系统的雏形。模板中出现的数据均为模拟数据，后期打算在此基础上配合Nodejs实现一个完整的单页应用。欢迎技术交流~
