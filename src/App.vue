@@ -63,7 +63,7 @@ export default {
 
   }
   .app_header .title{
-    margin-left: 20px;
+    margin-left: 16px;
     color: #fff;
   }
   .app_content{

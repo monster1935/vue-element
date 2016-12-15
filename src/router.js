@@ -36,7 +36,6 @@ export default [{
             },
         ]
     },
-
     {
         path: '*',
         redirect: '/index/testManagement'
